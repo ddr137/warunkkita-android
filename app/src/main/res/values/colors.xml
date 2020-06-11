@@ -8,4 +8,6 @@
     <color name="colorOrange">#fb7661</color>
     <color name="colorWhiteSmoke">#f5f5f5</color>
     <color name="colorGray">#d5d5d5</color>
+    <color name="colorGrey">#7C7E7E</color>
+    <color name="colorPurple">#ed92f8</color>
 </resources>
