@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="144dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardCornerRadius="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="7dp"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            app:cardCornerRadius="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/beras" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            style="@style/TextRegular"
+            android:layout_marginTop="5dp"
+            android:text="Beras Cianjur Wangi asa sasa" />
+
+        <TextView
+            android:textSize="11sp"
+            style="@style/TextRegular"
+            android:text="Rp12.000"
+            />
+
+        <TextView
+            style="@style/TextSemiBold"
+            android:textColor="@color/colorLightRed"
+            android:text="Rp12.000 /Item"
+            />
+
+        <TextView
+            style="@style/TextRegular"
+            android:text="Min. 10 Item"
+            />
+
+        <view
+            android:layout_marginTop="8dp"
+            android:background="@color/colorGrey"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"/>
+
+        <TextView
+            android:textColor="@color/colorGrey"
+            style="@style/TextRegular"
+            android:text="Warunkkita Official"
+            />
+
+        <TextView
+            android:textColor="@color/colorGrey"
+            style="@style/TextRegular"
+            android:text="Sumedang Utara"
+            />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
