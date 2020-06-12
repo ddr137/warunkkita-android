@@ -24,7 +24,7 @@ class HomeFragment : Fragment() {
     var viewPager: ViewPager2? = null
     var mySliderLists: List<Banner>? = null
     var adapter: MySliderAdapter? = null
-    var indicatorLay: LinearLayout? = null
+    private var indicatorLay: LinearLayout? = null
     private var api = ApiClient.instance()
 
     override fun onCreateView(
@@ -63,11 +63,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun getData() {
-        //val call = instance!!.myApi.getonbordingdata()
         api.getBannerSlider().enqueue(object : Callback<List<Banner>> {
             override fun onResponse(call: Call<List<Banner>>, response: Response<List<Banner>>) {
                 mySliderLists = response.body()
-                adapter = MySliderAdapter(requireContext(), mySliderLists as List<Banner>, viewPager!!)
+                adapter = MySliderAdapter(requireContext(), mySliderLists as List<Banner>)
                 viewPager!!.adapter = adapter
                 setupIndicator()
                 setupCurrentIndicator(0)

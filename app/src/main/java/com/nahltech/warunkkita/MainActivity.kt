@@ -1,5 +1,6 @@
 package com.nahltech.warunkkita
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,14 +16,12 @@ import com.nahltech.warunkkita.ui.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
 
+    @SuppressLint("PrivateResource")
     private fun addFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
-            .setCustomAnimations(
-                R.anim.design_bottom_sheet_slide_in,
-                R.anim.design_bottom_sheet_slide_out
-            )
-            .replace(R.id.content, fragment, fragment.javaClass.getSimpleName())
+
+            .replace(R.id.content, fragment, fragment.javaClass.simpleName)
             .commit()
     }
 
@@ -75,5 +74,11 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val spaceNavigationView = findViewById<SpaceNavigationView>(R.id.space)
+        spaceNavigationView.onSaveInstanceState(outState)
     }
 }
