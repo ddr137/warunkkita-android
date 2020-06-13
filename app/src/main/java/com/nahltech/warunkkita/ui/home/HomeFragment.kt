@@ -1,14 +1,14 @@
-package com.nahltech.warunkkita.ui
+package com.nahltech.warunkkita.ui.home
 
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.nahltech.warunkkita.R
 import com.nahltech.warunkkita.adapters.MySliderAdapter
@@ -106,7 +106,7 @@ class HomeFragment : Fragment() {
         private var currentPage = 0
         private const val NUM_PAGES = 3
 
-        fun newInstance(): HomeFragment{
+        fun newInstance(): HomeFragment {
             val fragment = HomeFragment()
             val args = Bundle()
             fragment.arguments = args

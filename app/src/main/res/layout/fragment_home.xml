@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhiteSmoke"
     android:paddingBottom="70dp"
-    tools:context=".ui.HomeFragment">
+    tools:context=".ui.home.HomeFragment">
 
     <ImageView
         android:id="@+id/imageView3"

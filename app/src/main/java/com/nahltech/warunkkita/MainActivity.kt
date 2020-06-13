@@ -9,9 +9,9 @@ import com.luseen.spacenavigation.SpaceItem
 import com.luseen.spacenavigation.SpaceNavigationView
 import com.luseen.spacenavigation.SpaceOnClickListener
 import com.nahltech.warunkkita.ui.HistoryFragment
-import com.nahltech.warunkkita.ui.HomeFragment
 import com.nahltech.warunkkita.ui.NotificationFragment
 import com.nahltech.warunkkita.ui.ProfileFragment
+import com.nahltech.warunkkita.ui.home.HomeFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private fun addFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
-
             .replace(R.id.content, fragment, fragment.javaClass.simpleName)
             .commit()
     }
