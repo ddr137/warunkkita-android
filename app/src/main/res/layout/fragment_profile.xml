@@ -6,120 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.ProfileFragment">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:src="@drawable/background_layout" />
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tv_account"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorLightRed"
         app:contentInsetStart="0dp">
 
         <TextView
             style="@style/TextRegular"
             android:layout_width="match_parent"
             android:gravity="center"
-            android:text="Akun"
+            android:text="@string/account"
             android:textColor="@color/colorWhite"
             android:textSize="20sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_account"
-        android:layout_marginStart="@dimen/margin_space"
-        android:layout_marginEnd="@dimen/margin_space">
-
-        <com.mikhaellopez.circularimageview.CircularImageView
-            android:id="@+id/profile_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/person_sample"
-            app:civ_border_width="2dp" />
-
-        <ImageButton
-            android:id="@+id/btn_change_image_profile"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_alignEnd="@+id/profile_image"
-            android:layout_alignBottom="@+id/profile_image"
-            android:background="@drawable/badge_background"
-            android:backgroundTint="@color/colorWhite"
-            android:padding="6dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_camera_grey" />
-
-        <TextView
-            android:id="@+id/tv_hello"
-            style="@style/TextRegular"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@+id/profile_image"
-            android:text="Halo,"
-            android:textColor="@color/colorWhite" />
-
-        <TextView
-            style="@style/TextSemiBold"
-            android:layout_below="@+id/tv_hello"
-            android:layout_marginStart="11dp"
-            android:layout_toEndOf="@+id/profile_image"
-            android:text="Dadan Ramdhani"
-            android:textColor="@color/colorWhite"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/text_email"
-            style="@style/TextSemiBold"
-            android:layout_below="@+id/profile_image"
-            android:layout_marginTop="13dp"
-            android:text="EMAIL"
-            android:textColor="@color/colorWhite" />
-
-        <TextView
-            android:id="@+id/tv_email_profile"
-            style="@style/TextRegular"
-            android:layout_below="@+id/text_email"
-            android:text="dadanramdhani1509@gmail.com"
-            android:textColor="@color/colorWhite" />
-
-        <TextView
-            android:id="@+id/text_no_hp"
-            style="@style/TextSemiBold"
-            android:layout_below="@+id/tv_email_profile"
-            android:layout_marginTop="5dp"
-            android:text="No HP"
-            android:textColor="@color/colorWhite" />
-
-        <TextView
-            android:id="@+id/tv_no_hp_profile"
-            style="@style/TextRegular"
-            android:layout_below="@+id/text_no_hp"
-            android:text="089602525473"
-            android:textColor="@color/colorWhite" />
-
-        <TextView
-            style="@style/TextRegular"
-            android:layout_below="@+id/tv_no_hp_profile"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="5dp"
-            android:text="Bergabung sejak 30 April 2020"
-            android:textColor="@color/colorWhite" />
-
-
-    </RelativeLayout>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/imageView3"
-        android:paddingStart="@dimen/margin_space"
-        android:paddingTop="@dimen/margin_space"
-        android:paddingEnd="@dimen/margin_space"
+        android:layout_below="@+id/tv_account"
         android:scrollbars="none">
 
         <LinearLayout
@@ -128,9 +35,108 @@
             android:orientation="vertical"
             android:paddingBottom="90dp">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:contentDescription="@string/photo_profile"
+                    android:src="@drawable/background_layout" />
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="@dimen/margin_space"
+                    android:src="@drawable/person_sample"
+                    app:civ_border_width="2dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_change_image_profile"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignEnd="@+id/profile_image"
+                    android:layout_alignBottom="@+id/profile_image"
+                    android:background="@drawable/badge_background"
+                    android:backgroundTint="@color/colorWhite"
+                    android:contentDescription="@string/icon_button_camera"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_camera_grey" />
+
+                <TextView
+                    android:id="@+id/tv_hello"
+                    style="@style/TextRegular"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@+id/profile_image"
+                    android:text="@string/halo"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    style="@style/TextSemiBold"
+                    android:layout_below="@+id/tv_hello"
+                    android:layout_marginStart="11dp"
+                    android:layout_toEndOf="@+id/profile_image"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    tools:text="Dadan Ramdhani" />
+
+                <TextView
+                    android:id="@+id/text_email"
+                    style="@style/TextSemiBold"
+                    android:layout_below="@+id/profile_image"
+                    android:layout_marginStart="@dimen/margin_space"
+                    android:layout_marginTop="13dp"
+                    android:text="@string/email"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/tv_email_profile"
+                    style="@style/TextRegular"
+                    android:layout_below="@+id/text_email"
+                    android:layout_marginStart="@dimen/margin_space"
+                    android:textColor="@color/colorWhite"
+                    tools:text="dadanramdhani1509@gmail.com" />
+
+                <TextView
+                    android:id="@+id/text_no_hp"
+                    style="@style/TextSemiBold"
+                    android:layout_below="@+id/tv_email_profile"
+                    android:layout_marginStart="@dimen/margin_space"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/no_hp"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/tv_no_hp_profile"
+                    style="@style/TextRegular"
+                    android:layout_below="@+id/text_no_hp"
+                    android:layout_marginStart="@dimen/margin_space"
+                    android:textColor="@color/colorWhite"
+                    tools:text="089602525473" />
+
+                <TextView
+                    style="@style/TextRegular"
+                    android:layout_below="@+id/tv_no_hp_profile"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="@dimen/margin_space"
+                    android:textColor="@color/colorWhite"
+                    tools:text="Bergabung sejak 30 April 2020" />
+
+
+            </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_space"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="@dimen/margin_space"
                 android:background="@color/colorSemiGrey"
                 android:gravity="center_horizontal|center_vertical"
                 android:orientation="vertical"
@@ -139,12 +145,12 @@
                 <TextView
                     style="@style/TextSemiBold"
                     android:lineSpacingExtra="9sp"
-                    android:text="20"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:text="20" />
 
                 <TextView
                     style="@style/TextRegular"
-                    android:text="Pembelian"
+                    android:text="@string/purchase"
                     android:textSize="14sp" />
 
 
@@ -153,61 +159,76 @@
             <TextView
                 style="@style/TextRegular"
                 android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginTop="30dp"
+                android:layout_marginEnd="@dimen/margin_space"
                 android:drawableStart="@drawable/ic_edit_grey"
                 android:drawablePadding="@dimen/margin_space"
-                android:text="Edit Akun"
+                android:text="@string/edit_account"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp" />
 
             <TextView
                 style="@style/TextRegular"
                 android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginTop="27dp"
+                android:layout_marginEnd="@dimen/margin_space"
                 android:drawableStart="@drawable/ic_pin_grey"
                 android:drawablePadding="@dimen/margin_space"
-                android:text="Ubah Password"
+                android:text="@string/change_password"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp" />
 
             <TextView
                 style="@style/TextRegular"
                 android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginTop="27dp"
+                android:layout_marginEnd="@dimen/margin_space"
                 android:drawableStart="@drawable/ic_pin_grey"
                 android:drawablePadding="@dimen/margin_space"
-                android:text="Alamat"
+                android:text="@string/address"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp" />
 
             <TextView
                 style="@style/TextRegular"
                 android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginTop="27dp"
+                android:layout_marginEnd="@dimen/margin_space"
                 android:drawableStart="@drawable/ic_edit_grey"
                 android:drawablePadding="@dimen/margin_space"
-                android:text="Rekening Bank"
+                android:text="@string/bank_account"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp" />
 
             <TextView
                 style="@style/TextRegular"
                 android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginTop="27dp"
+                android:layout_marginEnd="@dimen/margin_space"
                 android:drawableStart="@drawable/ic_logout_grey"
                 android:drawablePadding="@dimen/margin_space"
-                android:text="Logout"
+                android:text="@string/logout"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp" />
 
             <TextView
                 style="@style/TextSemiBold"
+                android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginTop="30dp"
-                android:text="INFORMASI PENJUALAN" />
+                android:layout_marginEnd="@dimen/margin_space"
+                android:text="@string/sales_information" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_space"
+                android:layout_marginEnd="@dimen/margin_space"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -223,12 +244,12 @@
                     <TextView
                         style="@style/TextSemiBold"
                         android:lineSpacingExtra="9sp"
-                        android:text="20"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        tools:text="20" />
 
                     <TextView
                         style="@style/TextRegular"
-                        android:text="Produk"
+                        android:text="@string/product"
                         android:textSize="14sp" />
 
 
@@ -248,12 +269,12 @@
                     <TextView
                         style="@style/TextSemiBold"
                         android:lineSpacingExtra="9sp"
-                        android:text="20"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        tools:text="20" />
 
                     <TextView
                         style="@style/TextRegular"
-                        android:text="Penjualan"
+                        android:text="@string/selling"
                         android:textSize="14sp" />
 
 
@@ -262,40 +283,43 @@
             </LinearLayout>
 
             <RelativeLayout
-                android:background="@drawable/badge_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginTop="25dp"
+                android:layout_marginEnd="@dimen/margin_space"
+                android:background="@drawable/badge_line"
                 android:padding="7dp">
 
                 <TextView
                     android:id="@+id/tv_free_delivery"
                     style="@style/TextSemiBold"
                     android:layout_centerInParent="true"
-                    android:text="Free Ongkir"
+                    android:text="@string/free_delivery"
                     android:textSize="14sp" />
 
                 <CheckBox
                     android:id="@+id/cb_free_delivery"
-                    android:buttonTint="@color/colorLightRed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:buttonTint="@color/colorLightRed" />
 
             </RelativeLayout>
 
             <TextView
                 style="@style/TextRegular"
+                android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginTop="10dp"
-                android:text="Free Ongkir (Ditanggung Penjual) Agar Produk anda lebih banyak diminati oleh Pembeli" />
+                android:layout_marginEnd="@dimen/margin_space"
+                android:text="@string/decs_free_delivery" />
 
             <Button
                 style="@style/ButtonGradient"
+                android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginTop="15dp"
-                android:text="Jual Produk"
-                android:textSize="14sp" />
-
-
+                android:layout_marginEnd="@dimen/margin_space"
+                android:text="@string/selling_products" />
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

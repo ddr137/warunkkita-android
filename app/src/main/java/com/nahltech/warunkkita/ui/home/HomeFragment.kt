@@ -1,7 +1,6 @@
 package com.nahltech.warunkkita.ui.home
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,6 @@ import com.nahltech.warunkkita.data.network.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 class HomeFragment : Fragment() {
 
@@ -33,33 +31,6 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewPager = view.findViewById(R.id.viewPager_slider)
-        indicatorLay = view.findViewById<View>(R.id.lay_indicator) as LinearLayout
-        getData()
-        viewPager!!.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                setupCurrentIndicator(position)
-            }
-        })
-
-        val handler = Handler()
-        val update = Runnable {
-            if (currentPage == NUM_PAGES) {
-                currentPage = 0
-            }
-            viewPager!!.setCurrentItem(currentPage++, true)
-        }
-        val swipeTimer = Timer()
-        swipeTimer.schedule(object : TimerTask() {
-            override fun run() {
-                handler.post(update)
-            }
-        }, 5000, 5000)
     }
 
     private fun getData() {

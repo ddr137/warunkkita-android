@@ -65,8 +65,11 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0"
 
-    // Shimmer
+    //facebook login & animation
     implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+    implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+
+
 
 
 

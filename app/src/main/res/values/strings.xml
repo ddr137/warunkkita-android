@@ -16,4 +16,20 @@
     <string name="email">EMAIL</string>
     <string name="no_hp">NO HP</string>
     <string name="retry_password">ULANGI PASSWORD</string>
+    <string name="account">Akun</string>
+    <string name="photo_profile">Photo Profile</string>
+    <string name="icon_button_camera">icon button camera</string>
+    <string name="halo">Halo,</string>
+    <string name="purchase">Pembelian</string>
+    <string name="edit_account">Edit Akun</string>
+    <string name="change_password">Ubah Password</string>
+    <string name="address">Alamat</string>
+    <string name="bank_account">Rekening Bank</string>
+    <string name="logout">Logout</string>
+    <string name="sales_information">INFORMASI PENJUALAN</string>
+    <string name="product">Produk</string>
+    <string name="selling">Penjualan</string>
+    <string name="decs_free_delivery">Free Ongkir (Ditanggung Penjual) Agar Produk anda lebih banyak diminati oleh Pembeli</string>
+    <string name="selling_products">Jual Produk</string>
+    <string name="free_delivery">Free Ongkir</string>
 </resources>

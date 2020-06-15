@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.home.DiscountProductActivity"></activity>
+        <activity android:name=".ui.home.DiscountProductActivity" />
         <activity android:name=".ui.home.NewProductActivity" />
         <activity android:name=".ui.home.BestSellingProductActivity" />
         <activity android:name=".auth.RegisterActivity" />
