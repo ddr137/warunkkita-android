@@ -10,8 +10,8 @@ import com.luseen.spacenavigation.SpaceNavigationView
 import com.luseen.spacenavigation.SpaceOnClickListener
 import com.nahltech.warunkkita.ui.HistoryFragment
 import com.nahltech.warunkkita.ui.NotificationFragment
-import com.nahltech.warunkkita.ui.ProfileFragment
 import com.nahltech.warunkkita.ui.home.HomeFragment
+import com.nahltech.warunkkita.ui.profile.ProfileFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.content, fragment, fragment.javaClass.simpleName)
             .commit()
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,23 +46,23 @@ class MainActivity : AppCompatActivity() {
             override fun onItemClick(itemIndex: Int, itemName: String) {
                 when (itemIndex) {
                     0 -> {
-                        val fragment = HomeFragment.newInstance()
-                        addFragment(fragment)
+                        val fragmentHome = HomeFragment.newInstance()
+                        addFragment(fragmentHome)
                         return
                     }
                     1 -> {
-                        val fragment = NotificationFragment()
-                        addFragment(fragment)
+                        val fragmentNotification = NotificationFragment()
+                        addFragment(fragmentNotification)
                         return
                     }
                     2 -> {
-                        val fragment = HistoryFragment()
-                        addFragment(fragment)
+                        val fragmentHistory = HistoryFragment()
+                        addFragment(fragmentHistory)
                         return
                     }
                     3 -> {
-                        val fragment = ProfileFragment()
-                        addFragment(fragment)
+                        val fragmentProfile = ProfileFragment()
+                        addFragment(fragmentProfile)
                         return
                     }
                 }

@@ -4,7 +4,6 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorWhite</item>
         <item name="colorPrimaryDark">@color/colorLightRed</item>
-        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="TextTitleHeaderRegular" parent="@style/TextAppearance.AppCompat">

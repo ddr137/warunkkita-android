@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ProfileFragment">
+    tools:context=".ui.profile.ProfileFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tv_account"
@@ -51,7 +51,6 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginStart="@dimen/margin_space"
-                    android:src="@drawable/person_sample"
                     app:civ_border_width="2dp" />
 
                 <ImageButton
@@ -77,6 +76,7 @@
                     android:textColor="@color/colorWhite" />
 
                 <TextView
+                    android:id="@+id/name_profile"
                     style="@style/TextSemiBold"
                     android:layout_below="@+id/tv_hello"
                     android:layout_marginStart="11dp"
@@ -95,7 +95,7 @@
                     android:textColor="@color/colorWhite" />
 
                 <TextView
-                    android:id="@+id/tv_email_profile"
+                    android:id="@+id/email_profile"
                     style="@style/TextRegular"
                     android:layout_below="@+id/text_email"
                     android:layout_marginStart="@dimen/margin_space"
@@ -105,14 +105,14 @@
                 <TextView
                     android:id="@+id/text_no_hp"
                     style="@style/TextSemiBold"
-                    android:layout_below="@+id/tv_email_profile"
+                    android:layout_below="@+id/email_profile"
                     android:layout_marginStart="@dimen/margin_space"
                     android:layout_marginTop="5dp"
                     android:text="@string/no_hp"
                     android:textColor="@color/colorWhite" />
 
                 <TextView
-                    android:id="@+id/tv_no_hp_profile"
+                    android:id="@+id/no_hp_profile"
                     style="@style/TextRegular"
                     android:layout_below="@+id/text_no_hp"
                     android:layout_marginStart="@dimen/margin_space"
@@ -120,8 +120,9 @@
                     tools:text="089602525473" />
 
                 <TextView
+                    android:id="@+id/registered_time"
                     style="@style/TextRegular"
-                    android:layout_below="@+id/tv_no_hp_profile"
+                    android:layout_below="@+id/no_hp_profile"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="@dimen/margin_space"
@@ -143,6 +144,7 @@
                 android:padding="10dp">
 
                 <TextView
+                    android:id="@+id/shopping_count"
                     style="@style/TextSemiBold"
                     android:lineSpacingExtra="9sp"
                     android:textSize="16sp"
@@ -205,6 +207,7 @@
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/logout"
                 style="@style/TextRegular"
                 android:layout_width="match_parent"
                 android:layout_marginStart="@dimen/margin_space"
@@ -216,110 +219,120 @@
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp" />
 
-            <TextView
-                style="@style/TextSemiBold"
-                android:layout_marginStart="@dimen/margin_space"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="@dimen/margin_space"
-                android:text="@string/sales_information" />
-
             <LinearLayout
+                android:id="@+id/seller_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_space"
-                android:layout_marginEnd="@dimen/margin_space"
-                android:baselineAligned="false">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="2dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorSemiGrey"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        style="@style/TextSemiBold"
-                        android:lineSpacingExtra="9sp"
-                        android:textSize="16sp"
-                        tools:text="20" />
-
-                    <TextView
-                        style="@style/TextRegular"
-                        android:text="@string/product"
-                        android:textSize="14sp" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorSemiGrey"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        style="@style/TextSemiBold"
-                        android:lineSpacingExtra="9sp"
-                        android:textSize="16sp"
-                        tools:text="20" />
-
-                    <TextView
-                        style="@style/TextRegular"
-                        android:text="@string/selling"
-                        android:textSize="14sp" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_space"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="@dimen/margin_space"
-                android:background="@drawable/badge_line"
-                android:padding="7dp">
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_free_delivery"
                     style="@style/TextSemiBold"
-                    android:layout_centerInParent="true"
-                    android:text="@string/free_delivery"
-                    android:textSize="14sp" />
+                    android:layout_marginStart="@dimen/margin_space"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="@dimen/margin_space"
+                    android:text="@string/sales_information" />
 
-                <CheckBox
-                    android:id="@+id/cb_free_delivery"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:buttonTint="@color/colorLightRed" />
+                    android:layout_marginStart="@dimen/margin_space"
+                    android:layout_marginEnd="@dimen/margin_space"
+                    android:baselineAligned="false">
 
-            </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorSemiGrey"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-            <TextView
-                style="@style/TextRegular"
-                android:layout_marginStart="@dimen/margin_space"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="@dimen/margin_space"
-                android:text="@string/decs_free_delivery" />
+                        <TextView
+                            android:id="@+id/my_product"
+                            style="@style/TextSemiBold"
+                            android:lineSpacingExtra="9sp"
+                            android:textSize="16sp"
+                            tools:text="20" />
 
-            <Button
-                style="@style/ButtonGradient"
-                android:layout_marginStart="@dimen/margin_space"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="@dimen/margin_space"
-                android:text="@string/selling_products" />
+                        <TextView
+                            style="@style/TextRegular"
+                            android:text="@string/product"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorSemiGrey"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/my_selling"
+                            style="@style/TextSemiBold"
+                            android:lineSpacingExtra="9sp"
+                            android:textSize="16sp"
+                            tools:text="20" />
+
+                        <TextView
+                            style="@style/TextRegular"
+                            android:text="@string/selling"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_space"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="@dimen/margin_space"
+                    android:background="@drawable/badge_line"
+                    android:padding="7dp">
+
+                    <TextView
+                        android:id="@+id/tv_free_delivery"
+                        style="@style/TextSemiBold"
+                        android:layout_centerInParent="true"
+                        android:text="@string/free_delivery"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/cb_free_delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:buttonTint="@color/colorLightRed" />
+
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/TextRegular"
+                    android:layout_marginStart="@dimen/margin_space"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="@dimen/margin_space"
+                    android:text="@string/decs_free_delivery" />
+
+                <Button
+                    style="@style/ButtonGradient"
+                    android:layout_marginStart="@dimen/margin_space"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="@dimen/margin_space"
+                    android:text="@string/selling_products" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
