@@ -1,4 +1,4 @@
-package com.nahltech.warunkkita.models
+package com.nahltech.warunkkita.data.models
 
 import com.google.gson.annotations.SerializedName
 

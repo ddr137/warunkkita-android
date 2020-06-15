@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorWhiteSmoke"
     tools:context=".auth.LoginActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_login"
         android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +48,7 @@
                 android:id="@+id/layout_input_email_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintEnabled="false"
                 android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginEnd="@dimen/margin_space">
 
@@ -71,6 +71,7 @@
                 android:id="@+id/layout_input_password_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintEnabled="false"
                 android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginEnd="@dimen/margin_space">
 
@@ -106,10 +107,10 @@
 
                 <com.facebook.shimmer.ShimmerFrameLayout
                     android:id="@+id/sh_login"
-                    android:layout_height="35dp"
+                    android:layout_height="40dp"
                     android:layout_width="match_parent"
                     android:text="@string/login"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <RelativeLayout
                         style="@style/ButtonGradient"
@@ -250,9 +251,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:orientation="horizontal">
 
         <TextView
             style="@style/TextRegular"

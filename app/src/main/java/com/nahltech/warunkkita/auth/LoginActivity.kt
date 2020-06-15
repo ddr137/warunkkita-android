@@ -63,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun handleUIState(it: UserState) {
+    private fun handleUIState(it: UserState)  {
         when (it) {
             is UserState.Reset -> {
                 setPasswordError(null)
@@ -101,6 +101,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun isLoading(state: Boolean) {
         if (state) {
+            edt_email_phone_login.isEnabled = false
+            edt_password_login.isEnabled = false
             register_now.isEnabled = false
             btn_login.isEnabled = false
 
@@ -116,6 +118,8 @@ class LoginActivity : AppCompatActivity() {
                 sh_login.stopShimmerAnimation()
                 //progress = 0
             }
+            edt_email_phone_login.isEnabled = true
+            edt_password_login.isEnabled = true
             register_now.isEnabled = true
             btn_login.isEnabled = true
         }

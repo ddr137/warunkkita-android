@@ -1,4 +1,4 @@
-package com.nahltech.warunkkita.network
+package com.nahltech.warunkkita.data.network
 
 import com.nahltech.warunkkita.utils.Constants
 import okhttp3.OkHttpClient

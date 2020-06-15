@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.nahltech.warunkkita.R
-import com.nahltech.warunkkita.models.Banner
+import com.nahltech.warunkkita.data.models.Banner
 
 
 class MySliderAdapter(

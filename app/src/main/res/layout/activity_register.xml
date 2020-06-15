@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,129 +18,205 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView5"
-        style="@style/TextTitleHeaderRegular"
-        android:text="Daftar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_register" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_register">
 
-    <TextView
-        android:id="@+id/textView6"
-        style="@style/TextTitleSemiBold"
-        android:layout_marginTop="20dp"
-        android:text="NAMA LENGKAP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        style="@style/editText"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/TextTitleHeaderRegular"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/register" />
 
-    <TextView
-        android:id="@+id/textView7"
-        style="@style/TextTitleSemiBold"
-        android:layout_marginTop="15dp"
-        android:text="EMAIL"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/TextTitleSemiBold"
+                android:layout_marginTop="20dp"
+                android:text="@string/full_name" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        style="@style/editText"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_input_full_name_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_space"
+                android:layout_marginEnd="@dimen/margin_space"
+                app:hintEnabled="false">
 
-    <TextView
-        android:id="@+id/textView8"
-        style="@style/TextTitleSemiBold"
-        android:layout_marginTop="15dp"
-        android:text="NO HP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_full_name_register"
+                    style="@style/editText"
+                    android:layout_margin="0dp"
+                    android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        style="@style/editText"
-        android:inputType="phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView9"
-        style="@style/TextTitleSemiBold"
-        android:layout_marginTop="15dp"
-        android:text="PASSWORD"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/TextTitleSemiBold"
+                android:layout_marginTop="15dp"
+                android:text="@string/email" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        style="@style/editText"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_input_email_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_space"
+                android:layout_marginEnd="@dimen/margin_space"
+                app:hintEnabled="false">
 
-    <TextView
-        android:id="@+id/textView10"
-        style="@style/TextTitleSemiBold"
-        android:layout_marginTop="15dp"
-        android:text="ULANGI PASSWORD"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_email_register"
+                    style="@style/editText"
+                    android:layout_margin="0dp"
+                    android:inputType="textEmailAddress" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        style="@style/editText"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:layout_width="0dp"
-        style="@style/ButtonGradient"
-        android:id="@+id/button2"
-        android:layout_marginTop="20dp"
-        android:text="Daftar"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/TextTitleSemiBold"
+                android:layout_marginTop="15dp"
+                android:text="@string/no_hp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_input_no_hp_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_space"
+                android:layout_marginEnd="@dimen/margin_space"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_phone_register"
+                    style="@style/editText"
+                    android:layout_margin="0dp"
+                    android:inputType="phone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/TextTitleSemiBold"
+                android:layout_marginTop="15dp"
+                android:text="@string/password"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_input_password_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_space"
+                android:layout_marginEnd="@dimen/margin_space"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_password_register"
+                    style="@style/editText"
+                    android:layout_margin="0dp"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView10"
+                style="@style/TextTitleSemiBold"
+                android:layout_marginTop="15dp"
+                android:text="@string/retry_password"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_input_retry_password_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_space"
+                android:layout_marginEnd="@dimen/margin_space"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_retry_password_register"
+                    style="@style/editText"
+                    android:layout_margin="0dp"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_space"
+                android:layout_marginTop="@dimen/margin_space"
+                android:layout_marginEnd="@dimen/margin_space">
+
+                <Button
+                    android:id="@+id/btn_register"
+                    style="@style/ButtonGradient"
+                    android:layout_width="match_parent"
+                    android:text="@string/register"
+                    android:visibility="visible" />
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/sh_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="@string/login"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        style="@style/ButtonGradient"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_centerHorizontal="true"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:text="@string/please_wait"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_space"
         android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="3sp"
-            android:text="Sudah punya akun?"
-            android:textColor="#333333"
-            android:textSize="12sp" />
+            style="@style/TextRegular"
+            android:text="@string/you_have_account" />
 
         <TextView
             android:id="@+id/login_here"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextRegular"
             android:layout_marginStart="5dp"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="3sp"
-            android:text="Login disini"
-            android:textColor="#fb6679"
-            android:textSize="12sp" />
+            android:text="@string/login_here"
+            android:textColor="@color/colorLightRed" />
 
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.nahltech.warunkkita.R
 import com.nahltech.warunkkita.adapters.MySliderAdapter
-import com.nahltech.warunkkita.models.Banner
-import com.nahltech.warunkkita.network.ApiClient
+import com.nahltech.warunkkita.data.models.Banner
+import com.nahltech.warunkkita.data.network.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
