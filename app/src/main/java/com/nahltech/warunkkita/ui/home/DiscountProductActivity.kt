@@ -13,7 +13,7 @@ class DiscountProductActivity : AppCompatActivity() {
     private fun toolbarUI() {
         setSupportActionBar(toolbar_discount_product)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        toolbar_discount_product.setNavigationIcon(R.drawable.ic_back)
+        toolbar_discount_product.setNavigationIcon(R.drawable.ic_back_white)
         toolbar_discount_product.setNavigationOnClickListener { finish() }
     }
 

@@ -25,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun toolbarUI() {
         setSupportActionBar(toolbar_register)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        toolbar_register.setNavigationIcon(R.drawable.ic_back)
+        toolbar_register.setNavigationIcon(R.drawable.ic_back_black)
         toolbar_register.setNavigationOnClickListener { finish() }
     }
 }

@@ -15,7 +15,7 @@ class BestSellingProductActivity : AppCompatActivity() {
     private fun toolbarUI() {
         setSupportActionBar(toolbar_best_selling_product)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        toolbar_best_selling_product.setNavigationIcon(R.drawable.ic_back)
+        toolbar_best_selling_product.setNavigationIcon(R.drawable.ic_back_white)
         toolbar_best_selling_product.setNavigationOnClickListener { finish() }
     }
 }

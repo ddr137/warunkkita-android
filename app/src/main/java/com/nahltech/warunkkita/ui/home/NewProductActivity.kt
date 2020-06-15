@@ -15,7 +15,7 @@ class NewProductActivity : AppCompatActivity() {
     private fun toolbarUI() {
         setSupportActionBar(toolbar_new_product)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        toolbar_new_product.setNavigationIcon(R.drawable.ic_back)
+        toolbar_new_product.setNavigationIcon(R.drawable.ic_back_white)
         toolbar_new_product.setNavigationOnClickListener { finish() }
     }
 }
