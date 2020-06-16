@@ -4,7 +4,13 @@ import com.nahltech.warunkkita.data.models.Banner
 import com.nahltech.warunkkita.data.models.Register
 import com.nahltech.warunkkita.data.models.ResponseImageUploader
 import com.nahltech.warunkkita.data.models.User
+import com.nahltech.warunkkita.data.models.address.City
+import com.nahltech.warunkkita.data.models.address.District
+import com.nahltech.warunkkita.data.models.address.Province
+import com.nahltech.warunkkita.data.models.address.Village
+import com.nahltech.warunkkita.utils.WrappedListResponse
 import com.nahltech.warunkkita.utils.WrappedResponse
+import io.reactivex.Observable
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -62,6 +68,20 @@ interface ApiService {
         @Field("email") email: String,
         @Field("phone") phone: String
     ): Call<WrappedResponse<User>>
+
+    /** Get Province, district, village, city **/
+
+    @GET("api/get-address/provinces")
+    fun provinces(): Observable<WrappedListResponse<Province>>
+
+    @GET("api/get-address/cities/{id}")
+    fun cities(@Path("id") id: Long): Observable<WrappedListResponse<City>>
+
+    @GET("api/get-address/districts/{id}")
+    fun districts(@Path("id") id: Long): Observable<WrappedListResponse<District>>
+
+    @GET("api/get-address/villages/{id}")
+    fun villages(@Path("id") id: Long): Observable<WrappedListResponse<Village>>
 
 
 }

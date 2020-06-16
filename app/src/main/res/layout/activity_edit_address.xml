@@ -1,9 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhiteSmoke"
     tools:context=".ui.profile.EditAddressActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_edit_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_edit_address"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@color/colorLightRed">
+
+            <TextView
+                style="@style/TextRegular"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/edit_account"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbar_edit_address">
+
+        <TextView
+            style="@style/TextTitleSemiBold"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/province" />
+
+        <Spinner
+            android:id="@+id/spinner_province_address"
+            style="@style/editText"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            style="@style/TextTitleSemiBold"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/city" />
+
+        <Spinner
+            android:id="@+id/spinner_city_address"
+            style="@style/editText"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            style="@style/TextTitleSemiBold"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/sub_district" />
+
+        <Spinner
+            android:id="@+id/spinner_district_address"
+            style="@style/editText"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/TextTitleSemiBold"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/village" />
+
+        <Spinner
+            android:id="@+id/spinner_village_address"
+            style="@style/editText"
+            android:layout_marginTop="3dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

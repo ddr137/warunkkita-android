@@ -73,6 +73,10 @@ class ProfileFragment : Fragment() {
             val moveIntent = Intent(context, EditProfileActivity::class.java)
             startActivity(moveIntent)
         }
+        edit_address_profile.setOnClickListener {
+            val moveIntent = Intent(context, EditAddressActivity::class.java)
+            startActivity(moveIntent)
+        }
     }
 
     private fun logout() {

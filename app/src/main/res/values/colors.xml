@@ -10,4 +10,5 @@
     <color name="colorGrey">#7C7E7E</color>
     <color name="colorSemiGrey">#e9e9e9</color>
     <color name="colorPurple">#ed92f8</color>
+    <color name="colorBlack">#000000</color>
 </resources>

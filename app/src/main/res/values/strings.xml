@@ -36,4 +36,21 @@
     <string name="gender">JENIS KELAMIN</string>
     <string name="men">Laki-laki</string>
     <string name="women">Perempuan</string>
+    <string name="province">PROVINSI</string>
+    <string name="city">KOTA/ KABUPATEN</string>
+    <string name="sub_district">KECAMATAN</string>
+    <string name="village">Desa</string>
+
+    <string-array name="provinsi">
+        <item>Pilih Provinsi</item>
+    </string-array>
+    <string-array name="kota">
+        <item>Pilih Kota/Kab</item>
+    </string-array>
+    <string-array name="kecamatan">
+        <item>Pilih Kecamatan</item>
+    </string-array>
+    <string-array name="desa">
+        <item>Pilih Kelurahan/Desa</item>
+    </string-array>
 </resources>
