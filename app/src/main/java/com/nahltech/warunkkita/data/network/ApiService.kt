@@ -52,4 +52,16 @@ interface ApiService {
         @Path("id") id : String,
         @Part image: MultipartBody.Part
     ): Call<WrappedResponse<ResponseImageUploader>>
+
+    @FormUrlEncoded
+    @POST("api/users/{id}")
+    fun editAccount(
+        @Header("Authorization") token : String,
+        @Path("id") id : String,
+        @Field("name") name: String,
+        @Field("email") email: String,
+        @Field("phone") phone: String,
+        @Field("gender") gender: String
+    ): Call<WrappedResponse<User>>
+
 }

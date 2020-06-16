@@ -32,4 +32,8 @@
     <string name="decs_free_delivery">Free Ongkir (Ditanggung Penjual) Agar Produk anda lebih banyak diminati oleh Pembeli</string>
     <string name="selling_products">Jual Produk</string>
     <string name="free_delivery">Free Ongkir</string>
+    <string name="save">Simpan</string>
+    <string name="gender">JENIS KELAMIN</string>
+    <string name="men">Laki-laki</string>
+    <string name="women">Perempuan</string>
 </resources>

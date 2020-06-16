@@ -46,11 +46,15 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViewModel()
         logout()
+        click()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun click(){
         cb_free_delivery.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 tv_free_delivery.text = "Batalkan Free Ongkir"
@@ -64,6 +68,10 @@ class ProfileFragment : Fragment() {
                 "Pilih",
                 1
             )
+        }
+        edit_account_profile.setOnClickListener {
+            val moveIntent = Intent(context, EditProfileActivity::class.java)
+            startActivity(moveIntent)
         }
     }
 
@@ -159,7 +167,7 @@ class ProfileFragment : Fragment() {
             sh_profile.visibility = View.VISIBLE
             sh_profile.startShimmerAnimation()
             profile_show.visibility = View.GONE
-        }  else {
+        } else {
             sh_profile.visibility = View.GONE
             sh_profile.stopShimmerAnimation()
             profile_show.visibility = View.VISIBLE
@@ -176,8 +184,6 @@ class ProfileFragment : Fragment() {
             data,
             requireActivity(),
             object : DefaultCallback() {
-
-
                 override fun onImagePicked(
                     imageFile: File,
                     source: EasyImage.ImageSource,
@@ -188,8 +194,10 @@ class ProfileFragment : Fragment() {
                     profile_show.visibility = View.GONE
                     //val token = Constants.getToken(requireContext())
                     val id = Constants.getIdUser(requireContext())
-                    val requestFile = RequestBody.create(MediaType.parse("multipart/from-data"), imageFile)
-                    val image = MultipartBody.Part.createFormData("image", imageFile.name, requestFile)
+                    val requestFile =
+                        RequestBody.create(MediaType.parse("multipart/from-data"), imageFile)
+                    val image =
+                        MultipartBody.Part.createFormData("image", imageFile.name, requestFile)
                     api.changeImage(id, image)
                         .enqueue(object : Callback<WrappedResponse<ResponseImageUploader>> {
                             override fun onFailure(
