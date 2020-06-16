@@ -216,7 +216,7 @@ class ProfileFragment : Fragment() {
                                 setupViewModel()
                                 Toast.makeText(
                                     context,
-                                    "Berhasil update profil",
+                                    "Berhasil ganti photo profil",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -235,5 +235,10 @@ class ProfileFragment : Fragment() {
                 }
 
             })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setupViewModel()
     }
 }

@@ -60,8 +60,8 @@ interface ApiService {
         @Path("id") id : String,
         @Field("name") name: String,
         @Field("email") email: String,
-        @Field("phone") phone: String,
-        @Field("gender") gender: String
+        @Field("phone") phone: String
     ): Call<WrappedResponse<User>>
+
 
 }

@@ -44,7 +44,7 @@ class Constants {
             }
         }
 
-        fun isValidEmailPhone(emailPhone : String) = android.util.Patterns.EMAIL_ADDRESS.matcher(emailPhone).matches() && android.util.Patterns.PHONE.matcher(emailPhone).matches()
+        fun isValidEmailPhone(emailPhone : String) = android.util.Patterns.EMAIL_ADDRESS.matcher(emailPhone).matches()
         fun isValidPassword(pass : String) = pass.length > 5
     }
 }

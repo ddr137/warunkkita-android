@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nahltech.warunkkita.data.models.User
 import com.nahltech.warunkkita.data.network.ApiClient
+import com.nahltech.warunkkita.utils.Constants
 import com.nahltech.warunkkita.utils.SingleLiveEvent
 import com.nahltech.warunkkita.utils.WrappedResponse
 import retrofit2.Call
@@ -36,6 +37,56 @@ class ProfileViewModel: ViewModel() {
                 state.value = UsersState.IsLoading(false)
             }
         })
+    }
+    fun editAccount(
+        token: String,
+        id: String,
+        name: String,
+        email: String,
+        phone: String
+    ) {
+        state.value = UsersState.IsLoading(true)
+        api.editAccount(token, id, name, email, phone)
+            .enqueue(object : Callback<WrappedResponse<User>> {
+                override fun onFailure(call: Call<WrappedResponse<User>>, t: Throwable) {
+                    state.value = UsersState.Error(t.message)
+                }
+
+                override fun onResponse(
+                    call: Call<WrappedResponse<User>>,
+                    response: Response<WrappedResponse<User>>
+                ) {
+                    if (response.isSuccessful) {
+                        val body = response.body() as WrappedResponse<User>
+                        if (body.status.equals("1")) {
+                            state.value = UsersState.IsSuccess(1)
+                        } else {
+                            state.value = UsersState.Failed("Gagal saat mengupdate akun. :(")
+
+                        }
+                    } else {
+                        state.value = UsersState.Error("Kesalahan saat mengupdate akun")
+                    }
+                    state.value = UsersState.IsLoading(false)
+                }
+            })
+    }
+
+    fun validateEditAccount(
+        name: String,
+        email: String,
+        phone: String
+    ): Boolean {
+        state.value = UsersState.Reset
+        if (name.isEmpty() || email.isEmpty() || phone.isEmpty() ) {
+            state.value = UsersState.ShowToast("Mohon isi semua form")
+            return false
+        }
+        if (!Constants.isValidEmailPhone(email)) {
+            state.value = UsersState.ValidateEditAccount(email = "Email tidak valid")
+            return false
+        }
+        return true
     }
 
     fun getUsers() = users

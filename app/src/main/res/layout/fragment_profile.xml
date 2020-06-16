@@ -151,6 +151,7 @@
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginStart="@dimen/margin_space"
+                            android:src="@drawable/person_sample"
                             app:civ_border_width="2dp" />
 
                         <ImageButton
@@ -281,7 +282,7 @@
                 android:layout_marginStart="@dimen/margin_space"
                 android:layout_marginTop="27dp"
                 android:layout_marginEnd="@dimen/margin_space"
-                android:drawableStart="@drawable/ic_pin_grey"
+                android:drawableStart="@drawable/ic_password_grey"
                 android:drawablePadding="@dimen/margin_space"
                 android:text="@string/change_password"
                 android:textColor="@color/colorGrey"
