@@ -2,8 +2,10 @@ package com.nahltech.warunkkita.data.network
 
 import com.nahltech.warunkkita.data.models.Banner
 import com.nahltech.warunkkita.data.models.Register
+import com.nahltech.warunkkita.data.models.ResponseImageUploader
 import com.nahltech.warunkkita.data.models.User
 import com.nahltech.warunkkita.utils.WrappedResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -42,4 +44,12 @@ interface ApiService {
     fun getProfile(
         @Header("Authorization") token: String
     ): Call<WrappedResponse<User>>
+
+    @Multipart
+    @POST("api/users/{id}/change-image")
+    fun changeImage(
+        //@Header("Authorization") token : String,
+        @Path("id") id : String,
+        @Part image: MultipartBody.Part
+    ): Call<WrappedResponse<ResponseImageUploader>>
 }

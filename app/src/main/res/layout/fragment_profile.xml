@@ -46,88 +46,192 @@
                     android:contentDescription="@string/photo_profile"
                     android:src="@drawable/background_layout" />
 
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/profile_image"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginStart="@dimen/margin_space"
-                    app:civ_border_width="2dp" />
+                <RelativeLayout
+                    android:id="@+id/profile_show"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <ImageButton
-                    android:id="@+id/btn_change_image_profile"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_alignEnd="@+id/profile_image"
-                    android:layout_alignBottom="@+id/profile_image"
-                    android:background="@drawable/badge_background"
-                    android:backgroundTint="@color/colorWhite"
-                    android:contentDescription="@string/icon_button_camera"
-                    android:padding="6dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_camera_grey" />
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="@dimen/margin_space"
+                        app:civ_border_width="2dp" />
 
-                <TextView
-                    android:id="@+id/tv_hello"
-                    style="@style/TextRegular"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_toEndOf="@+id/profile_image"
-                    android:text="@string/halo"
-                    android:textColor="@color/colorWhite" />
+                    <ImageButton
+                        android:id="@+id/btn_change_image_profile"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignEnd="@+id/profile_image"
+                        android:layout_alignBottom="@+id/profile_image"
+                        android:background="@drawable/badge_background"
+                        android:backgroundTint="@color/colorWhite"
+                        android:contentDescription="@string/icon_button_camera"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_camera_grey" />
 
-                <TextView
-                    android:id="@+id/name_profile"
-                    style="@style/TextSemiBold"
-                    android:layout_below="@+id/tv_hello"
-                    android:layout_marginStart="11dp"
-                    android:layout_toEndOf="@+id/profile_image"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    tools:text="Dadan Ramdhani" />
+                    <TextView
+                        android:id="@+id/tv_hello"
+                        style="@style/TextRegular"
+                        android:layout_marginStart="11dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_toEndOf="@+id/profile_image"
+                        android:text="@string/halo"
+                        android:textColor="@color/colorWhite" />
 
-                <TextView
-                    android:id="@+id/text_email"
-                    style="@style/TextSemiBold"
-                    android:layout_below="@+id/profile_image"
-                    android:layout_marginStart="@dimen/margin_space"
-                    android:layout_marginTop="13dp"
-                    android:text="@string/email"
-                    android:textColor="@color/colorWhite" />
+                    <TextView
+                        android:id="@+id/name_profile"
+                        style="@style/TextSemiBold"
+                        android:layout_below="@+id/tv_hello"
+                        android:layout_marginStart="11dp"
+                        android:layout_toEndOf="@+id/profile_image"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        tools:text="Dadan Ramdhani" />
 
-                <TextView
-                    android:id="@+id/email_profile"
-                    style="@style/TextRegular"
-                    android:layout_below="@+id/text_email"
-                    android:layout_marginStart="@dimen/margin_space"
-                    android:textColor="@color/colorWhite"
-                    tools:text="dadanramdhani1509@gmail.com" />
+                    <TextView
+                        android:id="@+id/text_email"
+                        style="@style/TextSemiBold"
+                        android:layout_below="@+id/profile_image"
+                        android:layout_marginStart="@dimen/margin_space"
+                        android:layout_marginTop="13dp"
+                        android:text="@string/email"
+                        android:textColor="@color/colorWhite" />
 
-                <TextView
-                    android:id="@+id/text_no_hp"
-                    style="@style/TextSemiBold"
-                    android:layout_below="@+id/email_profile"
-                    android:layout_marginStart="@dimen/margin_space"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/no_hp"
-                    android:textColor="@color/colorWhite" />
+                    <TextView
+                        android:id="@+id/email_profile"
+                        style="@style/TextRegular"
+                        android:layout_below="@+id/text_email"
+                        android:layout_marginStart="@dimen/margin_space"
+                        android:textColor="@color/colorWhite"
+                        tools:text="dadanramdhani1509@gmail.com" />
 
-                <TextView
-                    android:id="@+id/no_hp_profile"
-                    style="@style/TextRegular"
-                    android:layout_below="@+id/text_no_hp"
-                    android:layout_marginStart="@dimen/margin_space"
-                    android:textColor="@color/colorWhite"
-                    tools:text="089602525473" />
+                    <TextView
+                        android:id="@+id/text_no_hp"
+                        style="@style/TextSemiBold"
+                        android:layout_below="@+id/email_profile"
+                        android:layout_marginStart="@dimen/margin_space"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/no_hp"
+                        android:textColor="@color/colorWhite" />
 
-                <TextView
-                    android:id="@+id/registered_time"
-                    style="@style/TextRegular"
-                    android:layout_below="@+id/no_hp_profile"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="@dimen/margin_space"
-                    android:textColor="@color/colorWhite"
-                    tools:text="Bergabung sejak 30 April 2020" />
+                    <TextView
+                        android:id="@+id/no_hp_profile"
+                        style="@style/TextRegular"
+                        android:layout_below="@+id/text_no_hp"
+                        android:layout_marginStart="@dimen/margin_space"
+                        android:textColor="@color/colorWhite"
+                        tools:text="089602525473" />
+
+                    <TextView
+                        android:id="@+id/registered_time"
+                        style="@style/TextRegular"
+                        android:layout_below="@+id/no_hp_profile"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="@dimen/margin_space"
+                        android:textColor="@color/colorWhite"
+                        tools:text="Bergabung sejak 30 April 2020" />
+
+                </RelativeLayout>
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/sh_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                            android:id="@+id/view_profile_image"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginStart="@dimen/margin_space"
+                            app:civ_border_width="2dp" />
+
+                        <ImageButton
+                            android:id="@+id/view_btn_change_image_profile"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_alignEnd="@+id/view_profile_image"
+                            android:layout_alignBottom="@+id/view_profile_image"
+                            android:background="@drawable/badge_background"
+                            android:backgroundTint="@color/colorWhite"
+                            android:contentDescription="@string/icon_button_camera"
+                            android:padding="6dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_camera_grey" />
+
+                        <TextView
+                            android:id="@+id/view_tv_hello"
+                            style="@style/TextRegular"
+                            android:layout_marginStart="11dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_toEndOf="@+id/view_profile_image"
+                            android:text="@string/halo"
+                            android:textColor="@color/colorWhite" />
+
+                        <TextView
+                            android:id="@+id/view_name_profile"
+                            style="@style/TextSemiBold"
+                            android:layout_below="@+id/view_tv_hello"
+                            android:layout_marginStart="11dp"
+                            android:layout_toEndOf="@+id/view_profile_image"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="16sp"
+                            tools:text="Dadan Ramdhani" />
+
+                        <TextView
+                            android:id="@+id/view_text_email"
+                            style="@style/TextSemiBold"
+                            android:layout_below="@+id/view_profile_image"
+                            android:layout_marginStart="@dimen/margin_space"
+                            android:layout_marginTop="13dp"
+                            android:text="@string/email"
+                            android:textColor="@color/colorWhite" />
+
+                        <TextView
+                            android:id="@+id/view_email_profile"
+                            style="@style/TextRegular"
+                            android:layout_below="@+id/view_text_email"
+                            android:layout_marginStart="@dimen/margin_space"
+                            android:textColor="@color/colorWhite"
+                            tools:text="dadanramdhani1509@gmail.com" />
+
+                        <TextView
+                            android:id="@+id/view_text_no_hp"
+                            style="@style/TextSemiBold"
+                            android:layout_below="@+id/view_email_profile"
+                            android:layout_marginStart="@dimen/margin_space"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/no_hp"
+                            android:textColor="@color/colorWhite" />
+
+                        <TextView
+                            android:id="@+id/view_no_hp_profile"
+                            style="@style/TextRegular"
+                            android:layout_below="@+id/view_text_no_hp"
+                            android:layout_marginStart="@dimen/margin_space"
+                            android:textColor="@color/colorWhite"
+                            tools:text="089602525473" />
+
+                        <TextView
+                            android:id="@+id/view_registered_time"
+                            style="@style/TextRegular"
+                            android:layout_below="@+id/view_no_hp_profile"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="@dimen/margin_space"
+                            android:textColor="@color/colorWhite"
+                            tools:text="Bergabung sejak 30 April 2020" />
+
+                    </RelativeLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
 
 
             </RelativeLayout>
@@ -336,5 +440,4 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 </RelativeLayout>

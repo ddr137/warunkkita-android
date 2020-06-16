@@ -31,7 +31,7 @@ class ProfileViewModel: ViewModel() {
                         users.postValue(r)
                     }
                 }else{
-                    state.value = UsersState.Error("Gagal mendapatkan response dari server")
+                    state.value = UsersState.Failed("Gagal mendapatkan response dari server")
                 }
                 state.value = UsersState.IsLoading(false)
             }
@@ -54,6 +54,7 @@ sealed class UsersState {
         var gender : String? = null
     ) : UsersState()
     data class Error(var err : String?) : UsersState()
+    data class Failed(var message: String) : UsersState()
     data class IsSuccess(var what : Int? = null) : UsersState()
     object Reset : UsersState()
 }

@@ -16,13 +16,27 @@ import androidx.lifecycle.ViewModelProvider
 import coil.api.load
 import com.nahltech.warunkkita.R
 import com.nahltech.warunkkita.auth.LoginActivity
+import com.nahltech.warunkkita.data.models.ResponseImageUploader
 import com.nahltech.warunkkita.data.models.User
+import com.nahltech.warunkkita.data.network.ApiClient
 import com.nahltech.warunkkita.utils.Constants
+import com.nahltech.warunkkita.utils.WrappedResponse
 import kotlinx.android.synthetic.main.fragment_profile.*
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import pl.aprilapps.easyphotopicker.DefaultCallback
+import pl.aprilapps.easyphotopicker.EasyImage
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.File
+
 
 class ProfileFragment : Fragment() {
 
     private lateinit var profileViewModel: ProfileViewModel
+    private var api = ApiClient.instance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +57,13 @@ class ProfileFragment : Fragment() {
             } else {
                 tv_free_delivery.text = "Free Ongkir"
             }
+        }
+        btn_change_image_profile.setOnClickListener {
+            EasyImage.openChooserWithGallery(
+                this@ProfileFragment,
+                "Pilih",
+                1
+            )
         }
     }
 
@@ -119,21 +140,92 @@ class ProfileFragment : Fragment() {
                 toast(it.err)
                 isLoading(false)
             }
+            is UsersState.Failed -> {
+                toast(it.message)
+                isLoading(false)
+                context?.let { it1 -> Constants.clearToken(it1) }
+                startActivity(Intent(context, LoginActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                }).also { activity?.finish() }
+
+            }
             is UsersState.ShowToast -> toast(it.message)
         }
     }
 
     private fun isLoading(state: Boolean) {
         if (state) {
-            //sh_profile.visibility = View.VISIBLE
-            //sh_profile.startShimmerAnimation()
-            ///profile_show.visibility = View.GONE
-        } else {
-            //sh_profile.visibility = View.GONE
-            //sh_profile.stopShimmerAnimation()
-            //profile_show.visibility = View.VISIBLE
+            sh_profile.visibility = View.VISIBLE
+            sh_profile.startShimmerAnimation()
+            profile_show.visibility = View.GONE
+        }  else {
+            sh_profile.visibility = View.GONE
+            sh_profile.stopShimmerAnimation()
+            profile_show.visibility = View.VISIBLE
         }
     }
 
     private fun toast(message: String?) = Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        EasyImage.handleActivityResult(
+            requestCode,
+            resultCode,
+            data,
+            requireActivity(),
+            object : DefaultCallback() {
+
+
+                override fun onImagePicked(
+                    imageFile: File,
+                    source: EasyImage.ImageSource,
+                    type: Int
+                ) {
+                    sh_profile.visibility = View.VISIBLE
+                    sh_profile.startShimmerAnimation()
+                    profile_show.visibility = View.GONE
+                    //val token = Constants.getToken(requireContext())
+                    val id = Constants.getIdUser(requireContext())
+                    val requestFile = RequestBody.create(MediaType.parse("multipart/from-data"), imageFile)
+                    val image = MultipartBody.Part.createFormData("image", imageFile.name, requestFile)
+                    api.changeImage(id, image)
+                        .enqueue(object : Callback<WrappedResponse<ResponseImageUploader>> {
+                            override fun onFailure(
+                                call: Call<WrappedResponse<ResponseImageUploader>>,
+                                t: Throwable
+                            ) {
+                                setupViewModel()
+                                Toast.makeText(context, "gagal upload gambar", Toast.LENGTH_SHORT)
+                                    .show()
+                            }
+
+                            override fun onResponse(
+                                call: Call<WrappedResponse<ResponseImageUploader>>,
+                                response: Response<WrappedResponse<ResponseImageUploader>>
+                            ) {
+                                setupViewModel()
+                                Toast.makeText(
+                                    context,
+                                    "Berhasil update profil",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+
+                        })
+
+                }
+
+                override fun onImagePickerError(
+                    e: Exception,
+                    source: EasyImage.ImageSource,
+                    type: Int
+                ) {
+                    super.onImagePickerError(e, source, type)
+                    Toast.makeText(context, "" + e.message, Toast.LENGTH_SHORT).show()
+                }
+
+            })
+    }
 }
