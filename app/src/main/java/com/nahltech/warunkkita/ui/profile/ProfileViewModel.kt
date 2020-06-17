@@ -109,6 +109,30 @@ class ProfileViewModel: ViewModel() {
             })
     }
 
+    fun changePassword(token: String, id: String, oldPassword: String, newPassword: String, confirmPassword: String){
+        state.value = UsersState.IsLoading(true)
+        api.changePassword(token, id, oldPassword, newPassword, confirmPassword).enqueue(object : Callback<WrappedResponse<User>>{
+            override fun onFailure(call: Call<WrappedResponse<User>>, t: Throwable) {
+                state.value = UsersState.Error(t.message)
+            }
+
+            override fun onResponse(call: Call<WrappedResponse<User>>, response: Response<WrappedResponse<User>>) {
+                if(response.isSuccessful){
+                    val body = response.body() as WrappedResponse<User>
+                    if(body.status.equals("1")){
+                        state.value = UsersState.IsSuccess(1)
+                    }else{
+                        state.value = UsersState.Failed("Gagal saat mengupdate recipe. :(")
+
+                    }
+                }else{
+                    state.value = UsersState.Error("Kesalahan saat mengupdate recipe")
+                }
+                state.value = UsersState.IsLoading(false)
+            }
+        })
+    }
+
     fun validateEditAccount(
         name: String,
         email: String,
@@ -137,6 +161,30 @@ class ProfileViewModel: ViewModel() {
         state.value = UsersState.Reset
         if (province.isEmpty() || city.isEmpty() || district.isEmpty() || village.isEmpty() || completeAddress.isEmpty() || postalCode.isEmpty()) {
             state.value = UsersState.ShowToast("Mohon isi semua form")
+            return false
+        }
+        return true
+    }
+
+    fun validate(oldPassword : String, newPassword: String, confirmPassword: String) : Boolean{
+        state.value = UsersState.Reset
+        if(oldPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()){
+            state.value = UsersState.ShowToast("Mohon isi semua form")
+            return false
+        }
+
+        if(!Constants.isValidPassword(oldPassword)){
+            state.value = UsersState.ChangePasswordValidation(oldPassword = "Password setidaknya 6 Karakter")
+            return false
+        }
+
+        if(!Constants.isValidPassword(newPassword)){
+            state.value = UsersState.ChangePasswordValidation(newPassword = "Password setidaknya 6 Karakter")
+            return false
+        }
+
+        if(!Constants.isValidPassword(confirmPassword)){
+            state.value = UsersState.ChangePasswordValidation(confirmPassword = "Password setidaknya 6 Karakter")
             return false
         }
         return true

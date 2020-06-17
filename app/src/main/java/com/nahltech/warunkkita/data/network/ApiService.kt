@@ -91,5 +91,16 @@ interface ApiService {
         @Field("postal_code") postalCode: String
     ): Call<WrappedResponse<User>>
 
+    /** Ubah Password **/
+    @FormUrlEncoded
+    @POST("api/users/{id}/change-password")
+    fun changePassword(
+        @Header("Authorization") token : String,
+        @Path("id") id : String,
+        @Field("old_password") oldPassword: String,
+        @Field("new_password") newPassword: String,
+        @Field("confirm_password") confirmPassword: String
+    ): Call<WrappedResponse<User>>
+
 
 }

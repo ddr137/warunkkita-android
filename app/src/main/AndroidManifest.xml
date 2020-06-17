@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.profile.EditAddressActivity"></activity>
+        <activity android:name=".ui.profile.ChangePasswordActivity" />
+        <activity android:name=".ui.profile.EditAddressActivity" />
         <activity android:name=".ui.profile.EditProfileActivity" />
         <activity android:name=".ui.home.DiscountProductActivity" />
         <activity android:name=".ui.home.NewProductActivity" />

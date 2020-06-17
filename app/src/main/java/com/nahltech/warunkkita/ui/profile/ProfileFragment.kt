@@ -77,6 +77,10 @@ class ProfileFragment : Fragment() {
             val moveIntent = Intent(context, EditAddressActivity::class.java)
             startActivity(moveIntent)
         }
+        change_password.setOnClickListener {
+            val moveIntent = Intent(context, ChangePasswordActivity::class.java)
+            startActivity(moveIntent)
+        }
     }
 
     private fun logout() {

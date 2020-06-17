@@ -42,6 +42,8 @@
     <string name="village">Desa</string>
     <string name="full_address">ALAMAT LENGKAP</string>
     <string name="postal_code">KODE POS</string>
+    <string name="password_old">PASSWORD LAMA</string>
+    <string name="password_new">PASSWORD BARU</string>
 
     <string-array name="provinsi">
         <item>Pilih Provinsi</item>

@@ -277,6 +277,7 @@
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/change_password"
                 style="@style/TextRegular"
                 android:layout_width="match_parent"
                 android:layout_marginStart="@dimen/margin_space"
