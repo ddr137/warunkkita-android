@@ -91,7 +91,7 @@ interface ApiService {
         @Field("postal_code") postalCode: String
     ): Call<WrappedResponse<User>>
 
-    /** Ubah Password **/
+    /** Change Password **/
     @FormUrlEncoded
     @POST("api/users/{id}/change-password")
     fun changePassword(
@@ -100,6 +100,18 @@ interface ApiService {
         @Field("old_password") oldPassword: String,
         @Field("new_password") newPassword: String,
         @Field("confirm_password") confirmPassword: String
+    ): Call<WrappedResponse<User>>
+
+    /** Account Bank **/
+    @FormUrlEncoded
+    @POST("api/users/{id}/change-bank")
+    fun accountBank(
+        @Header("Authorization") token : String,
+        @Path("id") id : String,
+        @Field("bank_name") bankName: String,
+        @Field("account_number") accountNumber: String,
+        @Field("owner_name") ownerName: String,
+        @Field("branch") branch: String
     ): Call<WrappedResponse<User>>
 
 
