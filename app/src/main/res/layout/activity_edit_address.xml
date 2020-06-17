@@ -36,6 +36,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -83,6 +84,81 @@
             style="@style/editText"
             android:layout_marginTop="3dp" />
 
+        <TextView
+            style="@style/TextTitleSemiBold"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/full_address" />
+
+        <EditText
+            android:inputType="textPostalAddress"
+            android:id="@+id/complete_address_address"
+            style="@style/editText"
+            android:layout_height="75dp"
+            android:gravity="top"
+            android:paddingTop="5dp"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            style="@style/TextTitleSemiBold"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/postal_code" />
+
+        <EditText
+            android:id="@+id/postal_code_address"
+            style="@style/editText"
+            android:layout_marginBottom="5dp"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            tools:ignore="LabelFor" />
+
+
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_margin="@dimen/margin_space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_edit_address"
+            style="@style/ButtonGradient"
+            android:layout_width="match_parent"
+            android:text="@string/save"
+            android:visibility="visible" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/sh_save_edit_address"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/login"
+            android:visibility="gone">
+
+            <RelativeLayout
+                style="@style/ButtonGradient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="@string/please_wait"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

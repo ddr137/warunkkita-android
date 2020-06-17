@@ -72,6 +72,43 @@ class ProfileViewModel: ViewModel() {
             })
     }
 
+    fun editAddress(
+        token: String,
+        id: String,
+        provinceId: String,
+        cityId: String,
+        districtId: String,
+        villageId: String,
+        completeAddress: String,
+        postalCode: String
+    ) {
+        state.value = UsersState.IsLoading(true)
+        api.editAddress(token, id, provinceId, cityId, districtId, villageId, completeAddress,postalCode)
+            .enqueue(object : Callback<WrappedResponse<User>> {
+                override fun onFailure(call: Call<WrappedResponse<User>>, t: Throwable) {
+                    state.value = UsersState.Error(t.message)
+                }
+
+                override fun onResponse(
+                    call: Call<WrappedResponse<User>>,
+                    response: Response<WrappedResponse<User>>
+                ) {
+                    if (response.isSuccessful) {
+                        val body = response.body() as WrappedResponse<User>
+                        if (body.status.equals("1")) {
+                            state.value = UsersState.IsSuccess(1)
+                        } else {
+                            state.value = UsersState.Error("Gagal saat mengupdate akun. :(")
+
+                        }
+                    } else {
+                        state.value = UsersState.Error("Kesalahan saat mengupdate akun")
+                    }
+                    state.value = UsersState.IsLoading(false)
+                }
+            })
+    }
+
     fun validateEditAccount(
         name: String,
         email: String,
@@ -84,6 +121,22 @@ class ProfileViewModel: ViewModel() {
         }
         if (!Constants.isValidEmailPhone(email)) {
             state.value = UsersState.ValidateEditAccount(email = "Email tidak valid")
+            return false
+        }
+        return true
+    }
+
+    fun validateAddress(
+        province: String,
+        city: String,
+        district: String,
+        village: String,
+        completeAddress: String,
+        postalCode: String
+    ): Boolean {
+        state.value = UsersState.Reset
+        if (province.isEmpty() || city.isEmpty() || district.isEmpty() || village.isEmpty() || completeAddress.isEmpty() || postalCode.isEmpty()) {
+            state.value = UsersState.ShowToast("Mohon isi semua form")
             return false
         }
         return true

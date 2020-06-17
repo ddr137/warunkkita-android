@@ -40,6 +40,8 @@
     <string name="city">KOTA/ KABUPATEN</string>
     <string name="sub_district">KECAMATAN</string>
     <string name="village">Desa</string>
+    <string name="full_address">ALAMAT LENGKAP</string>
+    <string name="postal_code">KODE POS</string>
 
     <string-array name="provinsi">
         <item>Pilih Provinsi</item>
