@@ -31,13 +31,6 @@ interface ApiService {
     @FormUrlEncoded
     @POST("api/auth/register")
     fun register(
-        @Field("email_phone") emailPhone: String,
-        @Field("password") password: String
-    ): Call<WrappedResponse<User>>
-
-    @FormUrlEncoded
-    @POST("api/auth/register")
-    fun register(
         @Field("name") name: String,
         @Field("email") email: String,
         @Field("phone") phone: String,
@@ -51,6 +44,7 @@ interface ApiService {
         @Header("Authorization") token: String
     ): Call<WrappedResponse<User>>
 
+    /** Change Image **/
     @Multipart
     @POST("api/users/{id}/change-image")
     fun changeImage(
@@ -59,6 +53,7 @@ interface ApiService {
         @Part image: MultipartBody.Part
     ): Call<WrappedResponse<ResponseImageUploader>>
 
+    /** Edit Account **/
     @FormUrlEncoded
     @POST("api/users/{id}")
     fun editAccount(
@@ -70,7 +65,6 @@ interface ApiService {
     ): Call<WrappedResponse<User>>
 
     /** Get Province, district, village, city **/
-
     @GET("api/get-address/provinces")
     fun provinces(): Observable<WrappedListResponse<Province>>
 
