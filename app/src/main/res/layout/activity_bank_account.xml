@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhiteSmoke"
+    tools:context=".ui.profile.BankAccountActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_edit_bank_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_edit_bank_account"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@color/colorLightRed">
+
+            <TextView
+                style="@style/TextRegular"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/account_bank"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbar_edit_bank_account">
+
+        <TextView
+            style="@style/TextTitleSemiBold"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/bank_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appbar_edit_password" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_input_bank_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_space"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="@dimen/margin_space"
+            app:hintEnabled="false"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_bank_name"
+                style="@style/editText"
+                android:layout_margin="0dp"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/TextTitleSemiBold"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/no_account_bank"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appbar_edit_password" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_no_account_bank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_space"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="@dimen/margin_space"
+            app:hintEnabled="false"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_no_account_bank"
+                style="@style/editText"
+                android:layout_margin="0dp"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/TextTitleSemiBold"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/name_owner_bank"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appbar_edit_password" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPasswordRepeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_space"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="@dimen/margin_space"
+            app:hintEnabled="false"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_name_owner_bank_account"
+                style="@style/editText"
+                android:layout_margin="0dp"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/TextTitleSemiBold"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/branch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appbar_edit_password" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_input_branch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_space"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="@dimen/margin_space"
+            app:hintEnabled="false"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_branch_account_bank"
+                style="@style/editText"
+                android:layout_margin="0dp"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_margin="@dimen/margin_space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/save_edt_bank_account"
+            style="@style/ButtonGradient"
+            android:layout_width="match_parent"
+            android:text="@string/save"
+            android:visibility="visible" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/sh_save_bank_account"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/login"
+            android:visibility="gone">
+
+            <RelativeLayout
+                style="@style/ButtonGradient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="@string/please_wait"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,12 +11,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProfileViewModel: ViewModel() {
+class ProfileViewModel : ViewModel() {
     private var users = MutableLiveData<User>()
-    private var state : SingleLiveEvent<UsersState> = SingleLiveEvent()
+    private var state: SingleLiveEvent<UsersState> = SingleLiveEvent()
     private var api = ApiClient.instance()
 
-    fun fetchProfile(token: String){
+    fun fetchProfile(token: String) {
         state.value = UsersState.IsLoading(true)
         api.getProfile(token).enqueue(object : Callback<WrappedResponse<User>> {
             override fun onFailure(call: Call<WrappedResponse<User>>, t: Throwable) {
@@ -24,20 +24,24 @@ class ProfileViewModel: ViewModel() {
                 state.value = UsersState.Error(t.message)
             }
 
-            override fun onResponse(call: Call<WrappedResponse<User>>, response: Response<WrappedResponse<User>>) {
-                if(response.isSuccessful){
+            override fun onResponse(
+                call: Call<WrappedResponse<User>>,
+                response: Response<WrappedResponse<User>>
+            ) {
+                if (response.isSuccessful) {
                     val body = response.body() as WrappedResponse<User>
-                    if(body.status.equals("1")){
+                    if (body.status.equals("1")) {
                         val r = body.data
                         users.postValue(r)
                     }
-                }else{
+                } else {
                     state.value = UsersState.Failed("Gagal mendapatkan response dari server")
                 }
                 state.value = UsersState.IsLoading(false)
             }
         })
     }
+
     fun editAccount(
         token: String,
         id: String,
@@ -83,7 +87,16 @@ class ProfileViewModel: ViewModel() {
         postalCode: String
     ) {
         state.value = UsersState.IsLoading(true)
-        api.editAddress(token, id, provinceId, cityId, districtId, villageId, completeAddress,postalCode)
+        api.editAddress(
+            token,
+            id,
+            provinceId,
+            cityId,
+            districtId,
+            villageId,
+            completeAddress,
+            postalCode
+        )
             .enqueue(object : Callback<WrappedResponse<User>> {
                 override fun onFailure(call: Call<WrappedResponse<User>>, t: Throwable) {
                     state.value = UsersState.Error(t.message)
@@ -109,28 +122,73 @@ class ProfileViewModel: ViewModel() {
             })
     }
 
-    fun changePassword(token: String, id: String, oldPassword: String, newPassword: String, confirmPassword: String){
+    fun changePassword(
+        token: String,
+        id: String,
+        oldPassword: String,
+        newPassword: String,
+        confirmPassword: String
+    ) {
         state.value = UsersState.IsLoading(true)
-        api.changePassword(token, id, oldPassword, newPassword, confirmPassword).enqueue(object : Callback<WrappedResponse<User>>{
-            override fun onFailure(call: Call<WrappedResponse<User>>, t: Throwable) {
-                state.value = UsersState.Error(t.message)
-            }
-
-            override fun onResponse(call: Call<WrappedResponse<User>>, response: Response<WrappedResponse<User>>) {
-                if(response.isSuccessful){
-                    val body = response.body() as WrappedResponse<User>
-                    if(body.status.equals("1")){
-                        state.value = UsersState.IsSuccess(1)
-                    }else{
-                        state.value = UsersState.Failed("Gagal saat mengupdate recipe. :(")
-
-                    }
-                }else{
-                    state.value = UsersState.Error("Kesalahan saat mengupdate recipe")
+        api.changePassword(token, id, oldPassword, newPassword, confirmPassword)
+            .enqueue(object : Callback<WrappedResponse<User>> {
+                override fun onFailure(call: Call<WrappedResponse<User>>, t: Throwable) {
+                    state.value = UsersState.Error(t.message)
                 }
-                state.value = UsersState.IsLoading(false)
-            }
-        })
+
+                override fun onResponse(
+                    call: Call<WrappedResponse<User>>,
+                    response: Response<WrappedResponse<User>>
+                ) {
+                    if (response.isSuccessful) {
+                        val body = response.body() as WrappedResponse<User>
+                        if (body.status.equals("1")) {
+                            state.value = UsersState.IsSuccess(1)
+                        } else {
+                            state.value = UsersState.Failed("Gagal saat mengupdate recipe. :(")
+
+                        }
+                    } else {
+                        state.value = UsersState.Error("Kesalahan saat mengupdate recipe")
+                    }
+                    state.value = UsersState.IsLoading(false)
+                }
+            })
+    }
+
+    fun changeBankAccount(
+        token: String,
+        id: String,
+        bankName: String,
+        accountNumber: String,
+        ownerName: String,
+        branch: String
+    ) {
+        state.value = UsersState.IsLoading(true)
+        api.accountBank(token, id, bankName, accountNumber, ownerName, branch)
+            .enqueue(object : Callback<WrappedResponse<User>> {
+                override fun onFailure(call: Call<WrappedResponse<User>>, t: Throwable) {
+                    state.value = UsersState.Error(t.message)
+                }
+
+                override fun onResponse(
+                    call: Call<WrappedResponse<User>>,
+                    response: Response<WrappedResponse<User>>
+                ) {
+                    if (response.isSuccessful) {
+                        val body = response.body() as WrappedResponse<User>
+                        if (body.status.equals("1")) {
+                            state.value = UsersState.IsSuccess(1)
+                        } else {
+                            state.value = UsersState.Failed("Gagal saat mengupdate. :(")
+
+                        }
+                    } else {
+                        state.value = UsersState.Error("Kesalahan saat mengupdate")
+                    }
+                    state.value = UsersState.IsLoading(false)
+                }
+            })
     }
 
     fun validateEditAccount(
@@ -139,7 +197,7 @@ class ProfileViewModel: ViewModel() {
         phone: String
     ): Boolean {
         state.value = UsersState.Reset
-        if (name.isEmpty() || email.isEmpty() || phone.isEmpty() ) {
+        if (name.isEmpty() || email.isEmpty() || phone.isEmpty()) {
             state.value = UsersState.ShowToast("Mohon isi semua form")
             return false
         }
@@ -166,47 +224,77 @@ class ProfileViewModel: ViewModel() {
         return true
     }
 
-    fun validate(oldPassword : String, newPassword: String, confirmPassword: String) : Boolean{
+    fun validate(oldPassword: String, newPassword: String, confirmPassword: String): Boolean {
         state.value = UsersState.Reset
-        if(oldPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()){
+        if (oldPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
             state.value = UsersState.ShowToast("Mohon isi semua form")
             return false
         }
 
-        if(!Constants.isValidPassword(oldPassword)){
-            state.value = UsersState.ChangePasswordValidation(oldPassword = "Password setidaknya 6 Karakter")
+        if (!Constants.isValidPassword(oldPassword)) {
+            state.value =
+                UsersState.ChangePasswordValidation(oldPassword = "Password setidaknya 6 Karakter")
             return false
         }
 
-        if(!Constants.isValidPassword(newPassword)){
-            state.value = UsersState.ChangePasswordValidation(newPassword = "Password setidaknya 6 Karakter")
+        if (!Constants.isValidPassword(newPassword)) {
+            state.value =
+                UsersState.ChangePasswordValidation(newPassword = "Password setidaknya 6 Karakter")
             return false
         }
 
-        if(!Constants.isValidPassword(confirmPassword)){
-            state.value = UsersState.ChangePasswordValidation(confirmPassword = "Password setidaknya 6 Karakter")
+        if (!Constants.isValidPassword(confirmPassword)) {
+            state.value =
+                UsersState.ChangePasswordValidation(confirmPassword = "Password setidaknya 6 Karakter")
+            return false
+        }
+        return true
+    }
+
+    fun validateBankAccount(
+        bankName: String,
+        accountNumber: String,
+        ownerName: String,
+        branch: String
+    ): Boolean {
+        state.value = UsersState.Reset
+        if (bankName.isEmpty() || accountNumber.isEmpty() || ownerName.isEmpty() || branch.isEmpty()) {
+            state.value = UsersState.ShowToast("Mohon isi semua form")
             return false
         }
         return true
     }
 
     fun getUsers() = users
-    fun getState()  = state
+    fun getState() = state
 
 }
 
 sealed class UsersState {
-    data class ShowToast(var message : String) : UsersState()
-    data class IsLoading(var state : Boolean = false) : UsersState()
-    data class ChangePasswordValidation(var oldPassword : String? = null, var newPassword : String? = null, var confirmPassword : String? = null) : UsersState()
+    data class ShowToast(var message: String) : UsersState()
+    data class IsLoading(var state: Boolean = false) : UsersState()
+    data class ChangePasswordValidation(
+        var oldPassword: String? = null,
+        var newPassword: String? = null,
+        var confirmPassword: String? = null
+    ) : UsersState()
+
+    data class ChangeBankAccountValidation(
+        var bankName: String? = null,
+        var accountNumber: String? = null,
+        var ownerName: String? = null,
+        var branch: String? = null
+    ) : UsersState()
+
     data class ValidateEditAccount(
         var name: String? = null,
         var email: String? = null,
         var phone: String? = null,
-        var gender : String? = null
+        var gender: String? = null
     ) : UsersState()
-    data class Error(var err : String?) : UsersState()
+
+    data class Error(var err: String?) : UsersState()
     data class Failed(var message: String) : UsersState()
-    data class IsSuccess(var what : Int? = null) : UsersState()
+    data class IsSuccess(var what: Int? = null) : UsersState()
     object Reset : UsersState()
 }

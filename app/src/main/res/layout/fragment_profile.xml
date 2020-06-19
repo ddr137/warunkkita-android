@@ -303,6 +303,7 @@
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/bank_account"
                 style="@style/TextRegular"
                 android:layout_width="match_parent"
                 android:layout_marginStart="@dimen/margin_space"

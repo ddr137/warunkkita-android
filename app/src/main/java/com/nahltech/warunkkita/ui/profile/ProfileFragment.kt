@@ -81,6 +81,10 @@ class ProfileFragment : Fragment() {
             val moveIntent = Intent(context, ChangePasswordActivity::class.java)
             startActivity(moveIntent)
         }
+        bank_account.setOnClickListener {
+            val moveIntent = Intent(context, BankAccountActivity::class.java)
+            startActivity(moveIntent)
+        }
     }
 
     private fun logout() {
@@ -163,7 +167,7 @@ class ProfileFragment : Fragment() {
                 startActivity(Intent(context, LoginActivity::class.java).apply {
                     flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                     flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                }).also { activity?.finish() }
+                }).also { activity }
 
             }
             is UsersState.ShowToast -> toast(it.message)

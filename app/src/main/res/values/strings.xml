@@ -44,6 +44,11 @@
     <string name="postal_code">KODE POS</string>
     <string name="password_old">PASSWORD LAMA</string>
     <string name="password_new">PASSWORD BARU</string>
+    <string name="bank_name">NAMA BANK</string>
+    <string name="no_account_bank">NO REKENING</string>
+    <string name="name_owner_bank">ATAS NAMA</string>
+    <string name="branch">CABANG</string>
+    <string name="account_bank">Rekening Bank</string>
 
     <string-array name="provinsi">
         <item>Pilih Provinsi</item>
